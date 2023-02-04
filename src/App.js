@@ -10,19 +10,14 @@ function App() {
 
   const pullData = (response) =>{
     setImages(response.data.results);
-    //console.log("from")
-    //console.log(images)
-    
   }
 
 
   return (
     <>
       <div className="main">
-        
         <Banner func = {pullData}/>
-        <Images images={images}/> 
-
+        <Images images={images}/>
       </div>
     
     </>

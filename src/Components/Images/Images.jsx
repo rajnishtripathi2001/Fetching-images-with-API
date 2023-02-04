@@ -5,7 +5,6 @@ export default function Images(props) {
 
   const result = props.images;
 
-  console.log(result);
 
   return (
       <div className="grid-container">
