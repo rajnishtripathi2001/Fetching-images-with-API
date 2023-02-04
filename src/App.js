@@ -1,24 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import Banner from './Components/Banner/Banner';
+import Images from './Components/Images/Images';
 
-function App() {
+function App() {  
+
+  const [searchTerm, setSearchTerm] = useState('')
+
+  const pullData = (data) =>{
+    console.log(data);
+    setSearchTerm(data);
+  }
+
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="main">
+        
+        <Banner func = {pullData}/>
+        <Images/> 
+        {searchTerm}  
+
+      </div>
+    
+    </>
   );
 }
 
