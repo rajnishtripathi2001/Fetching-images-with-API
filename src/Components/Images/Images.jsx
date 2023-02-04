@@ -1,21 +1,21 @@
-import {React} from 'react'
+import {React, useState} from 'react'
 import "./Images.css"
 
-export default function Images() {
+export default function Images(props) {
+
+  const result = props.images;
+
+  console.log(result);
+
   return (
       <div className="grid-container">
-        <h1 className="grid-item">hello</h1>
-        <h1 className="grid-item">hello</h1>
-        <h1 className="grid-item">hello</h1>
-        <h1 className="grid-item">hello</h1>
-        <h1 className="grid-item">hello</h1>
-        <h1 className="grid-item">hello</h1>
-        <h1 className="grid-item">hello</h1>
-        <h1 className="grid-item">hello</h1>
-        <h1 className="grid-item">hello</h1>
-        <h1 className="grid-item">hello</h1>
-        <h1 className="grid-item">hello</h1>
-        <h1 className="grid-item">hello</h1>
+        
+        {result.map((value)=>{
+          return(
+            <img className="grid-item" src={value.urls.small} alt="tent" />
+          )
+        })}
+        
       </div>
   )
 }

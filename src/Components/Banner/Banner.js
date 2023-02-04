@@ -1,4 +1,5 @@
 import {useState,React}  from 'react'
+import axios from 'axios';
 import "./Banner.css"
 
 export default function Banner(props) {
@@ -10,9 +11,16 @@ export default function Banner(props) {
       //console.log(serchTerm)
       setSearchItem(searchTerm);
   }
-   
-  const searchImage=(event)=>{ 
-    props.func(searchItem);
+  const [result, setResult] = useState([])
+  const searchImage= async (event)=>{ 
+    await axios.get(`https://api.unsplash.com/search/photos?page=1&query=${searchItem}&client_id=8vwTLM0pA4MN0XT3nHJCgULKmLUTZOFDFuhoww7RyZY`)
+    .then((response)=>{
+      //console.log(response)
+      setResult(response)
+      //console.log(result)
+      
+    })
+    props.func(result);
     event.preventDefault();
   }
 

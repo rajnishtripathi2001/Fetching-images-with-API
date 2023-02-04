@@ -5,22 +5,23 @@ import Images from './Components/Images/Images';
 
 function App() {  
 
-  const [searchTerm, setSearchTerm] = useState('')
+  
+  const [images, setImages] = useState([])
 
-  const pullData = (data) =>{
-    console.log(data);
-    setSearchTerm(data);
+  const pullData = (response) =>{
+    setImages(response.data.results);
+    //console.log("from")
+    //console.log(images)
+    
   }
 
-  
 
   return (
     <>
       <div className="main">
         
         <Banner func = {pullData}/>
-        <Images/> 
-        {searchTerm}  
+        <Images images={images}/> 
 
       </div>
     
